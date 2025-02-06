@@ -1,11 +1,12 @@
 import './App.css'
-import { Button } from "tradable-sdk";
+import { Button, Header } from "tradable-sdk";
 
 function App() {
 
   return (
     <>
-      <Button/>
+      <Header />
+      <Button label="hello button" backgroundColor="white" />
     </>
   )
 }
