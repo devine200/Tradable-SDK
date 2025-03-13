@@ -8,7 +8,7 @@ import { libInjectCss } from "vite-plugin-lib-inject-css"
 export default defineConfig({
   plugins: [
     react(),
-    dts({ include: ["lib/**/*.ts", "lib/**/*.tsx"], insertTypesEntry: true, exclude: ["lib/**/*.css"], }),
+    dts({ include: ["lib/**/*.ts", "lib/**/*.tsx"], insertTypesEntry: true, exclude: [], }),
     libInjectCss()
   ],
   build: {
@@ -23,14 +23,17 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ["react", "react-dom"],
+      external: ["react", "react-dom", "ethers", "wagmi"],
       output: {
         // Provide global variables to use in the UMD build
         // for externalized deps
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+          ethers: "ethers",
+          wagmi: "wagmi"
         },
+        // entryFileNames: "tradable-sdk.js", 
       },
     },
   },

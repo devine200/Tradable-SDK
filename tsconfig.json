@@ -8,5 +8,6 @@
   "compilerOptions": {
     "outDir": "./dist",
   },
+  "types": ["node", "wagmi", "ethers"],
   "exclude": ["node_modules", "dist", ".storybook"]
 }
